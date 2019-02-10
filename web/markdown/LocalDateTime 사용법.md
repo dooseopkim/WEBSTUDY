@@ -9,20 +9,22 @@ java 1.8 부터 사용가능한 ```LocalDateTime``` 과 ```DateTimeFormatter```�
 #### 예제
 
 ```java
-/*
-* DateTimeFormatter + LocalDateTime -> format customize
-* yyyy : year
-* MM : Month
-* dd : day
-* HH : hour
-* mm : minutes
-* ss : second
-*
-* */
-DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
-LocalDateTime localDateTime = LocalDateTime.now();
-String formattedDateTime = localDateTime.format(dateTimeFormatter);
-
-
-System.out.println(LocalDateTime.now().toString());
+class LocalDateTimeEx{
+  public static void main(String[] args){
+  /*
+  * DateTimeFormatter + LocalDateTime -> format customize
+  * yyyy : year
+  * MM : Month
+  * dd : day
+  * HH : hour
+  * mm : minutes
+  * ss : second
+  *
+  * */
+    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+    LocalDateTime localDateTime = LocalDateTime.now();
+    String formattedDateTime = localDateTime.format(dateTimeFormatter);
+  	System.out.println(LocalDateTime.now().toString());
+  }
+}
 ```
