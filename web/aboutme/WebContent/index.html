@@ -1,12 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AboutMe</title>
+    <style>
+        p{
+            margin: 0 0 0 0;
+        }
+        h2{
+            margin: 0 0 0 0;
+        }
+        ul{
+            padding: 0 0 0 0;
+        }
+        li{
+            list-style: none;
+        }
+
+        img {
+            width: 75%;
+        }
+
+        .container{
+            border-top: 4px solid;
+            border-right : 8px solid;
+            border-bottom : 32px solid;
+            border-left: 8px solid;
+            border-color:  #3a848a;
+        }
+
+        nav{
+            border-bottom: 6px solid #3a848a;
+            width: 100%;
+            overflow: auto;
+        }
+
+        .row{
+            width: 70%;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+
+        nav ul{
+            margin-left: 55%;
+            text-align: center;
+        }
+
+        nav ul li {
+            float: left;
+            margin-left: 3em;
+            margin-bottom: 1em;
+            background-color:cadetblue;
+            border-radius: 1%;
+            padding: 10px 20px 10px 20px;
+            box-shadow: 1px 1px 1px 1px;
+            width: 5em;
+        }
+
+        footer{
+            border-top: 6px solid #3a848a;
+            color: rgb(212, 145, 44);
+        }
+
+        a{
+            text-decoration: none;
+        }
+        a:link,a:visited{
+            color:black;
+        }
+
+        .li-center{
+            text-align: center;
+        }
+        .horizental-list{
+            text-align: center;
+        }
+        .horizental-list li{
+            display: inline-block;
+            background-color: cadetblue;
+            height : 8em;
+            width: 8em;
+            line-height: 8em;
+        }
+        .horizental-list li a {
+            color:white;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-hi my name iskdd  ddd
-dljfandkflsanfldd
+    <div class="container">
+        <nav>
+            <ul class="li-center">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="aboutme.html">자기소개</a></li>
+                <li><a href="photo.html">내사진</a></li>
+                <li><a href="today">몇시에요</a></li>
+            </ul>
+        </nav>
+        <main>
+            <ul class="li-center">
+                <li><h2>웹 개발자 Jihwan</h2></li>
+                <li>함께 개발하고 성장하고 싶어요!</li>
+                <li>경기도 고양시 화정동 어딘가에 살고 있습니다</li>
+            </ul>
 
+            <ul class="horizental-list">
+                <li><a href="">자기소개</a></li>
+                <li><a href="">내사진</a></li>
+                </li>
+            </ul>
+
+            <ul class= "li-center">
+                <li><img src="/WebContent/resources/imgs/whereisme.png"></li>
+            </ul>
+        </main>
+        <footer class="li-center">
+            <ul>
+                <li>qwq713@naver.com</li>
+                <li>https://github.com/qwq713/boostcourse</li>
+            </ul>
+        </footer>
+    </div>
 </body>
 </html>
+
+
+<!--
+html layout tag를 사용합니다.
+classname은 일정한 컨벤션을 유지합니다.
+의미에 맞는 tag를 최대한 사용합니다. (div 사용은 최대한 자제)
+position속성과 float를 사용해서 element를 배치합니다.
+라이브러리를 사용한 레이아웃은 지양합니다. (부트스트랩 등)
+id와 class등의 다양한 selector문법을 잘 활용해야 합니다.
+-->
