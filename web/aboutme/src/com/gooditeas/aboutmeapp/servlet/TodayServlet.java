@@ -14,32 +14,32 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class TodayServlet
  */
+
 @WebServlet("/today")
 public class TodayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
-      
+
     public TodayServlet() {
     	super();
     }
-    
-    
+
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    
-	    //request.setCharacterEncoding("UTF-8");
+
+	    request.setCharacterEncoding("UTF-8");
 	    response.setContentType("text/html;charset=UTF-8");
-	    
-	    
+
 	    LocalDateTime nowDateTime = LocalDateTime.now();
-	    
+
 	    PrintWriter printWriter = response.getWriter();
 	    printWriter.print(buildHtmlSource(nowDateTime));
 	}
-    
-	
+
+
 	private static String buildHtmlSource(LocalDateTime nowDateTime) {
 	    StringBuilder sb = new StringBuilder();
 	    String formattedDateTime = nowDateTime.format(dateTimeFormatter);
