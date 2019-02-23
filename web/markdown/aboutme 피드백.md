@@ -1,3 +1,4 @@
+### 1
 *Try again*
 
 header 태그를 사용 하는 시점에서 이미 해당 태그는 특정 식별이 되어있는 상태입니다.
@@ -7,6 +8,9 @@ header 태그를 사용 하는 시점에서 이미 해당 태그는 특정 식�
 html5의 semantic 태그에 대해 다시 한번 생각 해 보는 계기를 가져봐도 좋을 것 같습니다.
 
 [HTML5 Semantic Tags w3c](https://www.w3schools.com/html/html5_semantic_elements.asp)
+
+
+
 
 
 
@@ -20,6 +24,9 @@ HTML5의 semantics tags 중 section article의 경우 모호한점이 있을 수
 
 
 
+
+### 2
+
 *Try again*
 
 현재 사용되고 있는 방식은 HTML5에서는 권장 형태는 아닙니다.
@@ -29,6 +36,9 @@ HTML5의 semantics tags 중 section article의 경우 모호한점이 있을 수
 현재 표현하려고 하였던 태그들도 HTML5에 나와있기 때문에 확인 후 적용 해보는 작업을 해보면 좋을 것 같습니다.
 
 [HTML5 Semantic Tags w3c](https://www.w3schools.com/html/html5_semantic_elements.asp)
+
+
+
 
 
 
@@ -42,6 +52,9 @@ HTML5 semantic 태그 중에서는 사진,그래프 같은 것을 표현하기 �
 
 
 
+
+
+### 3
 *Try again*
 
 실제 업무에서는 파일을 나눌수 있다면 최대한 나누는게 좋습니다.
@@ -60,6 +73,9 @@ main.css, about.css photo.css dashboard.css 와같이 나누어져있는 것에�
 
 
 
+
+
+
 *Try again*
 
 flexBox 모델은 기존의 CSS보다 적용하기도 쉽고 사용하기 위한 접근성도 높지 않습니다. 하지만 flexBox모델은 IE최신버전인 11에서도 완벽 지원을 하고 있지 
@@ -74,6 +90,9 @@ flexBox 모델은 기존의 CSS보다 적용하기도 쉽고 사용하기 위한
 
 
 
+
+### 4
+
 *Try again*
 
 justify-content 의 경우는 flex box에서  가로 축에 대한 방향성에 대한 속성입니다.
@@ -81,6 +100,9 @@ justify-content 의 경우는 flex box에서  가로 축에 대한 방향성에 
 현재 작성된 모든 페이지를 block 형태로 width 를 100%를 차지하는 형태입니다.
 
 css의 속성을 작성하셨을 때 작성한 속성이 어떠한 기대를 가지는지에 대해서 고민해보면 더 많은 도움이 될 것 같습니다.
+
+
+
 
 
 
@@ -100,6 +122,9 @@ align-items 는 세로축의 정렬을 위한 속성으로 현재 페이지에 �
 
 
 
+
+### 5
+
 *Try again*
 
 현재 css 코드를 전체적으로 훑어 보았을때 border-box를 이용하는 태그들이 많이 있습니다. 
@@ -109,6 +134,9 @@ align-items 는 세로축의 정렬을 위한 속성으로 현재 페이지에 �
 여러 태그들에 대해서 같은 속성 (중복되는 속성)이 있을 경우 매 태그마다 직접 지정해주지 않고 한번에 지정 하여서 사용하는 방식이 있습니다.
 
 이와 관련되어서 normalize.css 에 대해 조사하고 적용해 보면 좋을 것 같습니다. 추가적으로 reset.css도 확인해보면 좋겠습니다.
+
+
+
 
 
 
