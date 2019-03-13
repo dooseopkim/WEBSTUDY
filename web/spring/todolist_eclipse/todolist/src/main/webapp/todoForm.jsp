@@ -4,67 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>TodoListInsert</title>
-    <link rel="stylesheet" href="/resources/css/reset.css">
-    <style>
-    .center-row{
-        width: 100%;
-        text-align: center;
-    }
-    .center-row > h1{
-        font-size: 2rem;
-        line-height: 6rem;
-    }
-    .form__enrollment{
-        text-align: left;
-        padding-left: 30%;
-        padding-right: 30%;
-    }
-    .form__enrollment > h2{
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        margin-top: 0.5rem;
-        color: gray;
-    }
-    .form__enrollment > .input__title{
-        width: 100%;
-        line-height: 2rem;
-        margin-bottom: 1.5rem;
-        font-size: 1.5rem;
-    }
-    .form__enrollment > .input__name{
-        width: 50%;
-        line-height: 2.5rem;
-        margin-bottom: 1.5rem;
-        font-size: 1.5rem;
-    }
-    .button__radio{
-        margin-bottom: 3rem;
-    }
-    .button__radio > label{
-        margin-right: 4rem;
-    }
-    .button__radio > label > input{
-        margin-right: 1rem;
-    }
-    .button__prev{
-        background-color: white;
-        border: 1px solid black;
-        width : 20%;
-        line-height: 2rem;
-        margin-right: 30%;
-        font-size: 1rem;
-        text-decoration: underline;
-    }
-    .button__blue{
-        background-color: skyblue;
-        color: white;
-        border: none;
-        width: 20%;
-        line-height: 2rem;
-        margin-right:1%;
-        font-size: 1rem;
-    }
-    </style>
+    <link rel="stylesheet" href="./resources/css/reset.css">
+    <link rel="stylesheet" href="./resources/css/todoForm-style.css">
 </head>
 <body>
     <main>
@@ -88,18 +29,5 @@
         </section>
     </main>
 </body>
-<script>
-    function removeAllContext(){
-        let formElement = document.querySelector("#enroll-form");
-        let title = formElement.querySelector("#title");
-        let name = formElement.querySelector("#name");
-        title.value="";
-        name.value="";
-        let sequenceBtns = formElement.querySelectorAll(".input__sequence");
-        for(btn of sequenceBtns){
-            btn.checked = false;
-        }
-        sequenceBtns[0].checked="checked";
-    }
-</script>
+<script src="./resources/js/todoForm-js.js"></script>
 </html>
