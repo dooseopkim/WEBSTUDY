@@ -276,7 +276,7 @@ Twitter: @rich_clark
                         <li id="${todo.id}">
                             <h3>${todo.title}</h3>
                             <p>등록날짜 : ${todo.regDate} , ${todo.name}, 우선순위 ${todo.sequence}</p>
-                            <button class="button__typechange" onclick="updateType(event)">-></button>
+                            <button class="button__typechange" onclick="updateType(event,moveCard)">-></button>
                         </li>
                     </c:forEach>
                 </ul>
@@ -288,7 +288,7 @@ Twitter: @rich_clark
                         <li id="${todo.id}">
                             <h3>${todo.title}</h3>
                             <p>등록날짜 : ${todo.regDate} , ${todo.name}, 우선순위 ${todo.sequence}</p><button
-                                class="button__typechange" onclick="updateType(event)">-></button>
+                                class="button__typechange" onclick="updateType(event,moveCard)">-></button>
                         </li>
                     </c:forEach>
                 </ul>
@@ -314,7 +314,7 @@ Twitter: @rich_clark
     성공 시 , ui 에서 현재 자신을 제거하고 새롭게 업데이트된 결과를 append한다. [aJax + DOM]
     */
     //aJax 먼저 할 것.
-    function updateType(event) {
+    const updateType = function(event,callback) {
         /*
         1. /todo/update 에 PUT 요청으로 id를 보낸다.
         2. TodoTypeServlet에서 해당 요청을 받아서 update 한 뒤 completeUpdate란 결과값을 보낸다.
@@ -335,7 +335,7 @@ Twitter: @rich_clark
                 let completeUpdate = JSON.parse(this.responseText).completeUpdate;
                 if(completeUpdate==='success'){
                 	console.log('completeUpdate : '+completeUpdate);
-                	moveCard(ul,li);
+                	callback(ul,li);
                 }else{
                 	alert('fail!');
                 }
@@ -353,7 +353,7 @@ Twitter: @rich_clark
         
 
     }
-    function moveCard(ul, li) {
+    const moveCard = function(ul, li) {
         let typeName = ul.id;
         let nextTypeName = typeName === "todo-ul" ? "doing-ul" : "done-ul";
         if (nextTypeName === "done-ul") {
@@ -364,7 +364,7 @@ Twitter: @rich_clark
         document.querySelector("#" + nextTypeName).append(li);
     }
 
-    function fowardAddform(){
+    const fowardAddform = function(){
         window.location.href = '/todolist/addform';
     }
 
