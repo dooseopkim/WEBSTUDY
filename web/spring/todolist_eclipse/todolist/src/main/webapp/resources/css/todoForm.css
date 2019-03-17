@@ -1,8 +1,8 @@
-.center-row{
+.row__center{
     width: 100%;
     text-align: center;
 }
-.center-row > h1{
+.row__center > h1{
     font-size: 2rem;
     line-height: 6rem;
 }

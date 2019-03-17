@@ -8,7 +8,7 @@
     <title>TodoListMain</title>
     
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
 </head>
 
 <body>
@@ -17,9 +17,9 @@
             <h1>
                 나의 해야할 일들
             </h1>
-            <button onclick="fowardAddform()">새로운 TODO 등록</button>
+            <button class="btn__addtodo" id ="addtodo-btn">새로운 TODO 등록</button>
         </header>
-        <article class="right__row">
+        <article class="row__right">
             <section class="section__list">
                 <h2 class="h2__title">TODO</h2>
                 <ul id="todo">
@@ -27,7 +27,7 @@
                         <li id="${todo.id}">
                             <h3>${todo.title}</h3>
                             <p>등록날짜 : ${todo.regDate} , ${todo.name}, 우선순위 ${todo.sequence}</p>
-                            <button class="button__typechange" onclick="updateType(event,moveCard)">-></button>
+                            <button class="btn__typechange">-></button>
                         </li>
                     </c:forEach>
                 </ul>
@@ -39,7 +39,7 @@
                         <li id="${todo.id}">
                             <h3>${todo.title}</h3>
                             <p>등록날짜 : ${todo.regDate} , ${todo.name}, 우선순위 ${todo.sequence}</p><button
-                                class="button__typechange" onclick="updateType(event,moveCard)">-></button>
+                                class="btn__typechange">-></button>
                         </li>
                     </c:forEach>
                 </ul>
@@ -59,5 +59,5 @@
     </main>
 </body>
 
-<script src="./resources/js/main-js.js"></script>
+<script src="./resources/js/main.js"></script>
 </html>

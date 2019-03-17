@@ -1,7 +1,7 @@
 const removeAllContext = function(){
     let formElement = document.querySelector("#enroll-form");
-    let title = formElement.querySelector("#title");
-    let name = formElement.querySelector("#name");
+    let title = formElement.querySelector("#title-input");
+    let name = formElement.querySelector("#name-input");
     title.value="";
     name.value="";
     let sequenceBtns = formElement.querySelectorAll(".input__sequence");
@@ -10,3 +10,6 @@ const removeAllContext = function(){
     }
     sequenceBtns[0].checked="checked";
 }
+
+const removeAllContextBtn = document.querySelector("#removeAllContext-btn");
+removeAllContextBtn.addEventListener('click',removeAllContext);

@@ -1,5 +1,4 @@
-const updateType = function(event,callback) {
-    let btn = event.target;
+const updateType = function(btn,callback) {
     let li = btn.parentElement;
     let ul = li.parentElement;
     let typeName = ul.id;
@@ -24,11 +23,12 @@ const updateType = function(event,callback) {
     httpRequest.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
     httpRequest.send(JSON.stringify(data));
 }
+
 const moveCard = function(ul, li) {
     let typeName = ul.id;
-    let nextTypeName = typeName === "todo-ul" ? "doing-ul" : "done-ul";
-    if (nextTypeName === "done-ul") {
-        let btnElement = li.querySelector(".button__typechange");
+    let nextTypeName = typeName === "todo" ? "doing" : "done";
+    if (nextTypeName === "done") {
+        let btnElement = li.querySelector(".btn__typechange");
         li.removeChild(btnElement);
     }
     ul.removeChild(li);
@@ -39,3 +39,13 @@ const fowardAddform = function(){
     window.location.href = '/todolist/addform';
 }
 
+
+
+const addTodoBtn = document.querySelector("#addtodo-btn");
+const typeChageBtnList = document.querySelectorAll(".btn__typechange");
+
+addTodoBtn.addEventListener('click',fowardAddform,false);
+typeChageBtnList.forEach((btn)=>{
+	const updateTypeFunc = function(){updateType(btn,moveCard)};
+	btn.addEventListener('click', updateTypeFunc, false);
+});
