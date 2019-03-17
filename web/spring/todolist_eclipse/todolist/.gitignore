@@ -264,7 +264,4 @@ Temporary Items
 .apdisk
 
 # End of https://www.gitignore.io/api/osx,java,intellij
-web/spring/todolist_eclipse/Servers/Tomcat v8.5 Server at localhost-config/catalina.policy
-web/spring/todolist_eclipse/Servers/Tomcat v8.5 Server at localhost-config/context.xml
-web/spring/todolist_eclipse/Servers/Tomcat v8.5 Server at localhost-config/server.xml
-web/spring/todolist_eclipse/Servers/Tomcat v8.5 Server at localhost-config/tomcat-users.xml
+
