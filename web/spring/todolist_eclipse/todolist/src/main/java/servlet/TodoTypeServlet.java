@@ -20,13 +20,9 @@ import dto.TodoDto;
 
 @WebServlet("/todo/type/*")
 public class TodoTypeServlet extends HttpServlet {
-	/**
-	 * Status(End) : doPut 으로 변경 
-	 * 
-	 **/
+
 	private final TodoDao todoDao = new TodoDao();
 
-	// Todo Type 변경 요청을 받았을 때.
 	@Override
 	protected void doPut(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -34,30 +30,28 @@ public class TodoTypeServlet extends HttpServlet {
 		response.setContentType("application/json");
 
 		String id = TodoTypeServlet.getIdParam(request);
-		String type = TodoTypeServlet.getJsonMap(request).get("type");
+		String type = TodoTypeServlet.getJsonMap(request).get("type").toUpperCase();
 
 		TodoDto todoDto = new TodoDto();
 		todoDto.setId(Long.parseLong(id));
+		todoDto.setType(type);
 
-		if (type.equals("todo-ul")) {
-			todoDto.setType("TODO");
-		} else {
-			todoDto.setType("DOING");
+		String completeUpdate = "fail";
+		if (todoDao.updateTodo(todoDto) == 1) {
+			completeUpdate = "success";
 		}
-
-		String completeUpdate = todoDao.updateTodo(todoDto) == 1 ? "success" : "fail";
 
 		Map<String, String> resMap = new HashMap<>();
 		resMap.put("completeUpdate", completeUpdate);
-		String json = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 
+		String json = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 		PrintWriter out = response.getWriter();
 		out.println(json);
 		out.close();
 	}
 
 	private static String getIdParam(HttpServletRequest request) {
-		String pathInfo = request.getPathInfo(); // /todo/type/*
+		String pathInfo = request.getPathInfo();
 		String[] pathParts = pathInfo.split("/");
 		String id = pathParts[1];
 		return id;

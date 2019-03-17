@@ -22,7 +22,7 @@
         <article class="right__row">
             <section class="section__list">
                 <h2 class="h2__title">TODO</h2>
-                <ul id="todo-ul">
+                <ul id="todo">
                     <c:forEach items="${todoList}" var="todo">
                         <li id="${todo.id}">
                             <h3>${todo.title}</h3>
@@ -34,7 +34,7 @@
             </section>
             <section class="section__list">
                 <h2 class="h2__title">DOING</h2>
-                <ul id="doing-ul">
+                <ul id="doing">
                     <c:forEach items="${doingList}" var="todo">
                         <li id="${todo.id}">
                             <h3>${todo.title}</h3>
@@ -46,7 +46,7 @@
             </section>
             <section class="section__list">
                 <h2 class="h2__title">DONE</h2>
-                <ul id="done-ul">
+                <ul id="done">
                     <c:forEach items="${doneList}" var="todo">
                         <li id="${todo.id}">
                             <h3>${todo.title}</h3>

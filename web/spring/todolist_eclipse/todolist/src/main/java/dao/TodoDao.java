@@ -35,7 +35,7 @@ public class TodoDao {
         List<TodoDto> todoList = new ArrayList<>();
         String getTodosSql = "SELECT `id`, `title`, `name`, `sequence`, `type`, `regdate` " +
                 "FROM `todo` " +
-                "ORDER BY `regdate` DESC";
+                "ORDER BY `regdate` ASC";
 
         try (ResultSet rs = TodoConnection
                 .getConnection()

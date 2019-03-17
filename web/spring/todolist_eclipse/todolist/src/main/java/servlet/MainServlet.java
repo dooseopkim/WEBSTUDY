@@ -18,19 +18,18 @@ public class MainServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private final TodoDao todoDao = new TodoDao();
-    /**
-     *  localhost:8080/ 로 접근 시 화면에 보여줄 데이터 받아서
-     *  main.jsp로 forwarding
-     *  Status(END)
-     *  */
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
-
+        request.setCharacterEncoding("utf-8");
+        
         List<TodoDto> totalDoList=todoDao.getTodos();
         List<TodoDto> todoList = new ArrayList<>();
         List<TodoDto> doingList = new ArrayList<>();
         List<TodoDto> doneList = new ArrayList<>();
+        
+        
         for(TodoDto todo : totalDoList){
             String todoType = todo.getType();
             switch (todoType){
@@ -47,9 +46,11 @@ public class MainServlet extends HttpServlet {
                     break;
             }
         }
+        
         request.setAttribute("todoList",todoList);
         request.setAttribute("doingList",doingList);
         request.setAttribute("doneList",doneList);
+        
         RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
         dispatcher.forward(request,response);
     }
