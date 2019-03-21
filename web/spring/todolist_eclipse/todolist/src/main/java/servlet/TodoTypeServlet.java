@@ -21,14 +21,15 @@ import dto.TodoDto;
 @WebServlet("/todo/type/*")
 public class TodoTypeServlet extends HttpServlet {
 
-	private final TodoDao todoDao = new TodoDao();
+	private TodoDao todoDao;
 
 	@Override
 	protected void doPut(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
-
+		todoDao = new TodoDao();
+		
 		String id = TodoTypeServlet.getIdParam(request);
 		String type = TodoTypeServlet.getJsonMap(request).get("type").toUpperCase();
 

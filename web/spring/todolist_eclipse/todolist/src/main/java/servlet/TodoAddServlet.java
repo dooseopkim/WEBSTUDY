@@ -14,20 +14,26 @@ import java.io.IOException;
 @WebServlet("/todo")
 public class TodoAddServlet extends HttpServlet {
 
-	private final TodoDao todoDao = new TodoDao();
+	private TodoDao todoDao;
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		request.setCharacterEncoding("utf-8");
+		todoDao = new TodoDao();
 
 		String name = request.getParameter("name");
 		int sequence = Integer.parseInt(request.getParameter("sequence"));
 		String title = request.getParameter("title");
 
 		TodoDto todoDto = new TodoDto(name, sequence, title);
-		todoDao.addTodo(todoDto);
-
-		response.sendRedirect("/todolist");
+		int result = todoDao.addTodo(todoDto);
+		boolean success = result == 1 ? true : false;
+		if (success) {
+			response.sendRedirect("/todolist");
+		}else {
+			response.sendRedirect("/todolist/addform");
+		}
 	}
 }
