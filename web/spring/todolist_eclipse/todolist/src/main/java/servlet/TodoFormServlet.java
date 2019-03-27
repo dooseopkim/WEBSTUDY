@@ -14,7 +14,7 @@ public class TodoFormServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	response.setContentType("text/html;charset=utf-8");
     	
-    	RequestDispatcher dispatcher = request.getRequestDispatcher("todoForm.jsp");
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/todoForm.jsp");
     	dispatcher.forward(request,response);
     }
 }

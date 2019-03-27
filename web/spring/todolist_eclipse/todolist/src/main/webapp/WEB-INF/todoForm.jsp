@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>TodoListInsert</title>
-    <link rel="stylesheet" href="./resources/css/reset.css">
-    <link rel="stylesheet" href="./resources/css/todoForm.css">
+    <link rel="stylesheet" href="resources/css/reset.css">
+    <link rel="stylesheet" href="resources/css/todoForm.css">
     <style>
 
 

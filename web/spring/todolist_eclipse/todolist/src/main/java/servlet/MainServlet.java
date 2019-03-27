@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/")
+@WebServlet("")
 public class MainServlet extends HttpServlet {
 
 	private final TodoDao todoDao = new TodoDao();
@@ -48,7 +48,7 @@ public class MainServlet extends HttpServlet {
 		request.setAttribute("doingList", doingList);
 		request.setAttribute("doneList", doneList);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/main.jsp");
 		dispatcher.forward(request, response);
 	}
 }

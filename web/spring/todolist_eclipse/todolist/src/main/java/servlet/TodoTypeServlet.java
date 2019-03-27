@@ -30,8 +30,8 @@ public class TodoTypeServlet extends HttpServlet {
 		response.setContentType("application/json");
 		todoDao = new TodoDao();
 		
-		String id = TodoTypeServlet.getIdParam(request);
-		String type = TodoTypeServlet.getJsonMap(request).get("type").toUpperCase();
+		String id = getIdParam(request);
+		String type = getJsonMap(request).get("type").toUpperCase();
 
 		TodoDto todoDto = new TodoDto();
 		todoDto.setId(Long.parseLong(id));
@@ -51,21 +51,23 @@ public class TodoTypeServlet extends HttpServlet {
 		out.close();
 	}
 
-	private static String getIdParam(HttpServletRequest request) {
+	private String getIdParam(HttpServletRequest request) {
 		String pathInfo = request.getPathInfo();
 		String[] pathParts = pathInfo.split("/");
 		String id = pathParts[1];
 		return id;
 	}
 
-	private static Map<String, String> getJsonMap(HttpServletRequest request) throws IOException {
+	private Map<String, String> getJsonMap(HttpServletRequest request) throws IOException {
 		BufferedReader br = request.getReader();
-		String jsonString = "";
+		StringBuilder sb = new StringBuilder();
 		String line = "";
+		
 		while ((line = br.readLine()) != null) {
-			jsonString += line;
+			sb.append(line);
 		}
-
+		
+		String jsonString = sb.toString();
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, String> typeMap = mapper.readValue(jsonString, new TypeReference<Map<String, String>>() {
 		});

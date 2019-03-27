@@ -29,7 +29,7 @@ public class TodoAddServlet extends HttpServlet {
 
 		TodoDto todoDto = new TodoDto(name, sequence, title);
 		int result = todoDao.addTodo(todoDto);
-		boolean success = result == 1 ? true : false;
+		boolean success = (result == 1);
 		if (success) {
 			response.sendRedirect("/todolist");
 		}else {

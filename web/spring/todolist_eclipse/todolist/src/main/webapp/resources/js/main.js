@@ -1,5 +1,8 @@
 const updateType = function(btn,callback) {
-    let li = btn.parentElement;
+    
+
+	
+	let li = btn.parentElement;
     let ul = li.parentElement;
     let typeName = ul.id;
     let todoId = li.id;
