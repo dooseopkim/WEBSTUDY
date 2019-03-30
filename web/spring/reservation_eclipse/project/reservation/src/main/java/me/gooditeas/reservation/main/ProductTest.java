@@ -7,7 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import me.gooditeas.reservation.config.ApplicationConfig;
 import me.gooditeas.reservation.dao.ProductDao;
-import me.gooditeas.reservation.dto.ProductDto;
+import me.gooditeas.reservation.dto.Product;
 import me.gooditeas.reservation.service.ProductService;
 
 public class ProductTest {
@@ -15,7 +15,7 @@ public class ProductTest {
 	
 		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 		ProductDao productDao = ac.getBean(ProductDao.class);
-		List<ProductDto> productList = productDao.selectProuducts(1, 0, 4);
+		List<Product> productList = productDao.selectProuducts(1, 0, 4);
 
 		System.out.println(productList.size());
 		

@@ -1,6 +1,6 @@
 package me.gooditeas.reservation.dto;
 
-public class ProductDto {
+public class Product {
 
 	private Integer displayInfoId;
 	private String placeName;
@@ -9,11 +9,11 @@ public class ProductDto {
 	private Integer productId;
 	private String productImageUrl;
 
-	public ProductDto() {
+	public Product() {
 		super();
 	}
 
-	public ProductDto(Integer displayInfoId, String placeName, String productContent, String productDescription,
+	public Product(Integer displayInfoId, String placeName, String productContent, String productDescription,
 			Integer productId, String productImageUrl) {
 		super();
 		this.displayInfoId = displayInfoId;

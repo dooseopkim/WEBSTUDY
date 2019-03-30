@@ -16,23 +16,21 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import me.gooditeas.reservation.dto.ProductDto;
+import me.gooditeas.reservation.dto.Product;
 //Dao -> Service -> Controller(Chrome Restlet)
 
 @Repository
 public class ProductDao {
 	private NamedParameterJdbcTemplate jdbc;
-	private RowMapper<ProductDto> rowMapper = BeanPropertyRowMapper.newInstance(ProductDto.class);
+	private RowMapper<Product> rowMapper = BeanPropertyRowMapper.newInstance(Product.class);
 	
-	
-	@Autowired
 	public ProductDao(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
 
 
 
-	public List<ProductDto> selectProuducts(Integer categoryId, Integer start, Integer productsPerPage) {
+	public List<Product> selectProuducts(Integer categoryId, Integer start, Integer productsPerPage) {
 		Map<String,Integer> params = new HashMap<>();
 		params.put("categoryId", categoryId);
 		params.put("start", start);

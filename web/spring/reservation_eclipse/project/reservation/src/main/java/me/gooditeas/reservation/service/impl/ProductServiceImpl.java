@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import me.gooditeas.reservation.dao.ProductDao;
-import me.gooditeas.reservation.dto.ProductDto;
+import me.gooditeas.reservation.dto.Product;
 import me.gooditeas.reservation.service.ProductService;
 
 @Service
@@ -19,15 +19,17 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDao productDao;
 
 	@Override
-	@Transactional
+	@Transactional(readOnly=true)
 	public Map<String, Object> getProductsInfo(Integer categoryId, Integer start) {
-		Map<String, Object> jsonResult = new LinkedHashMap<>();
+		Map<String, Object> entityMap = new LinkedHashMap<>();
 		
-		List<ProductDto> productList = productDao.selectProuducts(categoryId, start, ProductService.productsPerPage);
+		List<Product> productList = productDao.selectProuducts(categoryId, start, ProductService.productsPerPage);
 		Integer totalCount = productDao.countProuducts(categoryId);
 		
-		jsonResult.put("items", productList);
-		jsonResult.put("totalCount", totalCount);
-		return jsonResult;
+		entityMap.put("items", productList);
+		entityMap.put("totalCount", totalCount);
+		return entityMap;
+	
+	// get 2개인데 굳이 ? Transaction 사용?
 	}
 }
