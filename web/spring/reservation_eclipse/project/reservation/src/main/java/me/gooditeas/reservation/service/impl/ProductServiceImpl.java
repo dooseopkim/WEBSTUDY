@@ -23,8 +23,14 @@ public class ProductServiceImpl implements ProductService {
 	public Map<String, Object> getProductsInfo(Integer categoryId, Integer start) {
 		Map<String, Object> entityMap = new LinkedHashMap<>();
 		
-		List<Product> productList = productDao.selectProuducts(categoryId, start, ProductService.productsPerPage);
 		Integer totalCount = productDao.countProuducts(categoryId);
+		List<Product> productList = null;
+		if(categoryId == null) {
+			start = 0;
+			productList = productDao.selectProuducts(categoryId, start, totalCount);			
+		}else {
+			productList = productDao.selectProuducts(categoryId, start, ProductService.productsPerPage);
+		}
 		
 		entityMap.put("items", productList);
 		entityMap.put("totalCount", totalCount);

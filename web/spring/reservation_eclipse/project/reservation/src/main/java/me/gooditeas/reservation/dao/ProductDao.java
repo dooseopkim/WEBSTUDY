@@ -32,14 +32,14 @@ public class ProductDao {
 
 	public List<Product> selectProuducts(Integer categoryId, Integer start, Integer productsPerPage) {
 		Map<String,Integer> params = new HashMap<>();
-		params.put("categoryId", categoryId);
+		params.put("category_id", categoryId);
 		params.put("start", start);
-		params.put("productsPerPage", productsPerPage);
+		params.put("products_per_page", productsPerPage);
 		return jdbc.query(SELECT_PRODUCTS, params, rowMapper);
 	}
 	
 	public Integer countProuducts(Integer categoryId) {
-		Map<String,Integer> param = Collections.singletonMap("categoryId", categoryId);
+		Map<String,Integer> param = Collections.singletonMap("category_id", categoryId);
 		return jdbc.queryForObject(COUNT_PRODUCTS, param, Integer.class);
 	}
 }

@@ -1,7 +1,6 @@
 package me.gooditeas.reservation.controller.api;
 
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,8 @@ public class ProductApiController {
 	ProductService productsevice;
 	
 	@GetMapping
-	public ResponseEntity<Map<String,Object>> products( @RequestParam(name="categoryId", required = true) int categoryId,
-										   				@RequestParam(name="start", required = false, defaultValue = "0") int start){
+	public ResponseEntity<Map<String,Object>> products( @RequestParam(name="categoryId", required = false) Integer categoryId,
+										   				@RequestParam(name="start", required = false, defaultValue = "0") Integer start){
 		Map<String,Object> productsInfo = productsevice.getProductsInfo(categoryId, start);
 		return new ResponseEntity<Map<String,Object>>(productsInfo, HttpStatus.OK);
 	}

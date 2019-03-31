@@ -1,30 +1,27 @@
 package me.gooditeas.reservation.main;
 
-import java.util.List;
+
+import java.util.Map;
+import java.util.Set;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import me.gooditeas.reservation.config.ApplicationConfig;
-import me.gooditeas.reservation.dao.ProductDao;
-import me.gooditeas.reservation.dto.Product;
 import me.gooditeas.reservation.service.ProductService;
+
 
 public class ProductTest {
 	public static void main(String[] args) {
 	
 		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-		ProductDao productDao = ac.getBean(ProductDao.class);
-		List<Product> productList = productDao.selectProuducts(1, 0, 4);
-
-		System.out.println(productList.size());
-		
-		System.out.println(productDao.countProuducts(1));
-		
-		
-		
-		//ApplicationContext에 등록될 때,implement 된 상위 클래스가 등록됨.
 		ProductService productService = ac.getBean(ProductService.class);
+		Map<String, Object> productList = productService.getProductsInfo(1, 1);
+		Set<String> keySets = productList.keySet();
+		for(String key : keySets) {
+			System.out.println(productList.get(key));
+		}
+		
 
 		
 	}
