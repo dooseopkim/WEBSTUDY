@@ -22,7 +22,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages= {"me.gooditeas.reservation.controller.*"})
+@ComponentScan(basePackages= {"me.gooditeas.reservation.controller"})
 public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
 	/* addResourceHandlers 
 	 * Add handlers to serve static resources such as images, js, and, css files from specific locations 
@@ -31,9 +31,9 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
 	@Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/META-INF/resources/webjars/").setCachePeriod(31556926);
-        registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
-        registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
-        registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
+        registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/").setCachePeriod(31556926);
+        registry.addResourceHandler("/img/**").addResourceLocations("/resources/img/").setCachePeriod(31556926);
+        registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/").setCachePeriod(31556926);
     }
  
 	/* configureDefaultServletHandling
@@ -50,11 +50,11 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter{
      * the response body. This is useful in cases where there is no need for custom controller logic -- e.g. render 
      * a home page, perform simple site URL redirects, return a 404 status with HTML content, a 204 with no content, and more.
      * */
-    @Override
-    public void addViewControllers(final ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("main");
-    }
-    
+//    @Override
+//    public void addViewControllers(final ViewControllerRegistry registry) {
+//        registry.addViewController("/").setViewName("main");
+//    }
+//    
     @Bean
     public InternalResourceViewResolver getInternalResourceViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();

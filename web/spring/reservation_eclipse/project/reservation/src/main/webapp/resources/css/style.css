@@ -2993,6 +2993,8 @@ button {
     box-sizing: border-box
 }
 
+
+
 @media screen and (max-width: 320px) {
     .event .section_visual .group_visual .container_visual .visual_img .item {
         height:177px
@@ -3822,3 +3824,4 @@ button {
   top: 0;
   font-size: 10px;
 }
+
