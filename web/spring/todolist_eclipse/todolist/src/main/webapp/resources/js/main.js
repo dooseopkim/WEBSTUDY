@@ -1,15 +1,13 @@
 const updateType = function(btn,callback) {
-    
+    const li = btn.parentElement,
+    ul = li.parentElement,
+    typeName = ul.id,
+    todoId = li.id;
 
-	
-	let li = btn.parentElement;
-    let ul = li.parentElement;
-    let typeName = ul.id;
-    let todoId = li.id;
     let data = {};
     data.type = typeName;
 
-    let httpRequest = new XMLHttpRequest();
+    const httpRequest = new XMLHttpRequest();
     httpRequest.onload = function () {
         if (httpRequest.status >= 200 && httpRequest.status < 300) {
             let completeUpdate = JSON.parse(this.responseText).completeUpdate;
@@ -28,12 +26,14 @@ const updateType = function(btn,callback) {
 }
 
 const moveCard = function(ul, li) {
-    let typeName = ul.id;
-    let nextTypeName = typeName === "todo" ? "doing" : "done";
+    const typeName = ul.id,
+    nextTypeName = typeName === "todo" ? "doing" : "done";
+
     if (nextTypeName === "done") {
-        let btnElement = li.querySelector(".btn__typechange");
+        const btnElement = li.querySelector(".btn__typechange");
         li.removeChild(btnElement);
     }
+
     ul.removeChild(li);
     document.querySelector("#" + nextTypeName).append(li);
 }
