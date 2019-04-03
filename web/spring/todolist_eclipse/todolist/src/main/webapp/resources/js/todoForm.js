@@ -1,15 +1,7 @@
-const removeAllContext = function(){
-    let formElement = document.querySelector("#enroll-form");
-    let title = formElement.querySelector("#title-input");
-    let name = formElement.querySelector("#name-input");
-    title.value="";
-    name.value="";
-    let sequenceBtns = formElement.querySelectorAll(".input__sequence");
-    for(btn of sequenceBtns){
-        btn.checked = false;
-    }
-    sequenceBtns[0].checked="checked";
-}
+//historyback 
 
-const removeAllContextBtn = document.querySelector("#removeAllContext-btn");
-removeAllContextBtn.addEventListener('click',removeAllContext);
+
+const btnBack = document.querySelector(".btn-back");
+btnBack.addEventListener('click',function(){
+    history.back();
+});

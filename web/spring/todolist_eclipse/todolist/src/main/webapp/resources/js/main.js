@@ -30,7 +30,7 @@ const moveCard = function(ul, li) {
     nextTypeName = typeName === "todo" ? "doing" : "done";
 
     if (nextTypeName === "done") {
-        const btnElement = li.querySelector(".btn__typechange");
+        const btnElement = li.querySelector(".js__update-btn");
         li.removeChild(btnElement);
     }
 
@@ -45,7 +45,7 @@ const fowardAddform = function(){
 
 
 const addTodoBtn = document.querySelector("#addtodo-btn");
-const typeChageBtnList = document.querySelectorAll(".btn__typechange");
+const typeChageBtnList = document.querySelectorAll(".js__update-btn");
 
 addTodoBtn.addEventListener('click',fowardAddform,false);
 typeChageBtnList.forEach((btn)=>{
