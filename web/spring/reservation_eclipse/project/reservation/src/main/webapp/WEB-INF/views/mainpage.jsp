@@ -9,26 +9,11 @@
     <meta name="description" content="네이버 예약, 네이버 예약이 연동된 곳 어디서나 바로 예약하고, 네이버 예약 홈(나의예약)에서 모두 관리할 수 있습니다.">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <title>네이버 예약</title>
-    <!-- <link href="css/style.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="../../resources/css/style.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/mainpage.css" rel ="stylesheet">
+	<script src="js/mainpage.js"></script>
 </head>
-<style>
-    .product_list{
-        float: left;
-        overflow: hidden;
-    }
-    .product_list li{
-        width: 100%;
-        transition: left 0.3s;
 
-        display: inline-block;
-        position: relative;
-    }
-    .product_list li img{
-        height: 177px;
-        width: 100%;
-    }
-</style>
 
 <body>
     <div id="container">
@@ -64,34 +49,10 @@
                         <div>
                             <div class="container_visual">
                                 <!-- 슬라이딩기능: 이미지 (type = 'th')를 순차적으로 노출 -->
-                                <ul class="visual_img product_list">
-                                    <li class ="itm">
-                                        <img class="product_item" src="../../resources/img/12_th_32.png"></img>
-                                    </li>
-                                    <li class ="itm">
-                                        <img class="product_item" src="../../resources/img/14_th_36.png"></img>
-                                    </li>
-                                    <li class ="itm">
-                                        <img class="product_item" src="../../resources/img/12_th_32.png"></img>
-                                    </li>
-                                    <li class ="itm">
-                                        <img class="product_item" src="../../resources/img/14_th_36.png"></img>
-                                    </li>
-                                    <li class ="itm">
-                                        <img class="product_item" src="../../resources/img/12_th_32.png"></img>
-                                    </li>
-                                    <li class ="itm">
-                                        <img class="product_item" src="../../resources/img/14_th_36.png"></img>
-                                    </li>
-
-                                    <li class ="itm">
-                                        <img class="product_item" src="../../resources/img/12_th_32.png"></img>
-                                    </li>
-                                    <li class ="itm">
-                                        <img class="product_item" src="../../resources/img/14_th_36.png"></img>
-                                    </li>
-
+                                <div id="slide-container">
+                                <ul>
                                 </ul>
+                                </div>
                             </div>
                             <span class="nxt_fix" style="display:none;"></span>
                         </div>
@@ -233,7 +194,7 @@
             <span class="copyright">© NAVER Corp.</span>
         </div>
     </footer>
-
+	
 
     <script type="rv-template" id="promotionItem">
     <li class="item" style="background-image: url(http://211.249.62.123/productImages/${productId}/${productImageId});">
@@ -261,26 +222,12 @@
             </a>
         </li>
     </script>
+    <script type ="item-template" id ="slideItem">
+		<li class='slide_item'>
+			<img class='product_item' src='${productImageUrl}'>
+			</img>
+		</li>
+	</script>
 </body>
-<script>
-var ul = document.querySelector('.product_list');
-var num = 0;
-var wid = 414;
-
-function move(){
-	num -= 414;
-    var ul = document.querySelector('.product_list');
-    var firstLi = document.querySelectorAll('.itm')[0];
-	if(num<-wid){
-        ul.removeChild(firstLi);
-        ul.appendChild(firstLi);
-		num = 0;
-	}
-    firstLi = document.querySelectorAll('.itm')[0];
-	firstLi.style.left = num + "px";
-};
-setInterval(move,300);
-</script>
-
 
 </html>

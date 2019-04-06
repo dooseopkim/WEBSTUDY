@@ -18,7 +18,6 @@ public class PromotionApiController {
 	@Autowired
 	private PromotionService promotionService;
 
-
 	@GetMapping
 	public ResponseEntity<Map<String,Object>> promotions(){
 		Map<String,Object> promotionsInfo = promotionService.getPromotionsInfo();
