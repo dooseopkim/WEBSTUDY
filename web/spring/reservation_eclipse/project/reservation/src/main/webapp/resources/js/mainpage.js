@@ -70,9 +70,38 @@ const loadPromotionList = function(){
 };
 
 
+// const fetchProductList = function(categoryId, start){
+//     let requestURL = "api/products";
+//     let parameterStr = "?catagoryId=:categoryId&start=:start";
+//     if(categoryId !== ""){
+//         parameterStr = parameterStr.replace(":categoryId",categoryId)
+//                                    .replace(":start",start);
+//         requestURL += parameterStr;
+//     }
+
+//     const httpMethod = "GET";
+//     const httpRequest = new XMLHttpRequest();
+//     httpRequest.onload = function(){
+//         let reqStatus = httpRequest.status;
+//         if(200<=reqStatus && reqStatus < 300){
+//             let productList = JSON.parse(httpRequest.responseText);
+//             console.table(productList);
+//         }
+//     };
+//     httpRequest.open(httpMethod,requestURL);
+//     httpRequest.send();
+// };
+
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", function (event) {
     loadPromotionList();
+    // fetchProductList("",0);
+
+
 
     const eventTabLiList = document.querySelectorAll(".event_tab_lst > li");
 

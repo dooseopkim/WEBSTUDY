@@ -32,8 +32,8 @@ public class ProductServiceImpl implements ProductService {
 			productList = productDao.selectProuducts(categoryId, start, ProductService.productsPerPage);
 		}
 		
-		entityMap.put("items", productList);
 		entityMap.put("totalCount", totalCount);
+		entityMap.put("items", productList);
 		return entityMap;
 	
 	// get 2개인데 굳이 ? Transaction 사용?
