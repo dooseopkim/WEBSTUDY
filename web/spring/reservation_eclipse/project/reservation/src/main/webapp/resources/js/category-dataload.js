@@ -5,6 +5,8 @@ let exposedProductCount = 0;
 let productTotalCount = 0;
 let exposureUnit = 4;
 
+
+
 const getProductData = function(categoryId,start){
     let requestURL = "api/products";
     if(categoryId ===""){
@@ -34,11 +36,15 @@ const getProductData = function(categoryId,start){
     httpRequest.send();
 };
 
+
+
 const updateTotalCount = function(totalCount){
     productTotalCount = totalCount;
     let prdTotalCountElt = document.querySelector("#prd-total-count");
     prdTotalCountElt.innerHTML = (totalCount+"개");
 };
+
+
 
 const appendProductData = function(items){
     let prdEventBox = document.querySelectorAll(".lst_event_box");
@@ -59,6 +65,8 @@ const appendProductData = function(items){
     });
 };
 
+
+
 const makeProductItemHTML = function(elt){
     let itemTemplate = document.querySelector("#itemList").innerHTML;
     itemTemplate =  itemTemplate.replace('{{id}}',elt.productId)
@@ -71,10 +79,14 @@ const makeProductItemHTML = function(elt){
     return itemTemplate;
 };
 
+
+
 const showMoreButton = function(){
     let moreBtn = document.querySelector("#more-btn");
     moreBtn.style.visibility = 'visible';
 }
+
+
 
 const hideMoreButton = function(){
     let moreBtn = document.querySelector("#more-btn");
